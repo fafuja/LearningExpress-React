@@ -1,14 +1,17 @@
 import React from 'react';
-import logo from './logo.svg';
+import {Container} from "reactstrap";
+import Routes from "./routes"
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-
-          Learning the MERN stack.
-        
-    </div>
+    <Container>
+      <h1>Sport's App</h1>
+        <Routes/>
+          {/* <Login/> Component Login*/}
+           {/* <Login/> = <Login></Login> */}
+          {/*<Dashboard/>*/}
+    </Container>
   );
 }
 
