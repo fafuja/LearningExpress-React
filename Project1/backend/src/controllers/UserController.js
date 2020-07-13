@@ -5,6 +5,9 @@ module.exports = {
     async createUser(req, res){
         try{ 
             const {firstName, lastName, password, email} = req.body;
+            if(!email || !password || !firstName || !lastName){
+                return res.status(200).json({message: "Required field missing."})
+            }
             const hashedPassword = await bcrypt.hash(password, 6);
 
             const existentUser = await User.findOne({email})

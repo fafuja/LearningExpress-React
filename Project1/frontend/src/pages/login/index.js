@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import api from "../../services/api"
-import { Button, Form, FormGroup, Input, Alert, Container } from 'reactstrap';
+import { Button, Form, FormGroup, Input, Alert, Container, Fade } from 'reactstrap';
 
 
 
 function Login({ history }) { // Creating component Login
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+    const [fade, fadeEffect] = useState(false)
     const loginRef = React.createRef();
     const handleSubmit = async evt => {
         //This is async func. coz It will talk to the server API
@@ -24,8 +25,11 @@ function Login({ history }) { // Creating component Login
             history.push('/dashboard')
         } else {
             const { message } = response.data;
-            loginRef.current.children[0].hidden = false
+
+            //loginRef.current.children[0].hidden = false
             loginRef.current.children[0].innerText = message
+            console.log(message)
+            fadeEffect(true)
             //console.log(loginRef.current.children)
         }
     }
@@ -34,12 +38,13 @@ function Login({ history }) { // Creating component Login
             <h2>Login</h2>
             <p>Please <strong>login into your account.</strong></p>
             <Form onSubmit={handleSubmit}>
+                <Fade in={fade}>
                 <div ref={loginRef}>
-                    <Alert hidden={true} color="danger"> {/* Function component */}
-                    sadasd
-                </Alert>
+                    <Alert color="danger"> {/* Function component */}
+                        {/*hidden={false}*/}
+                    </Alert>
                 </div>
-
+                </Fade>
                 <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
                     <Input type="email" name="email" id="email" placeholder="Your email" onChange={evt => setEmail(evt.target.value)} />
                 </FormGroup>
