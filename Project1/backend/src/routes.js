@@ -55,7 +55,7 @@ routes.get('/event/:eventId', DashboardController.getEventById)
 
 
 //Event
-routes.delete('/event/:eventId',  EventController.delete) // BROWSER ALWAYS DO A GET REQUEST.
+routes.delete('/event/:eventId/delete',  EventController.delete) // BROWSER ALWAYS DO A GET REQUEST.
 routes.post('/event',  upload.single("thumbnail"), EventController.createEvent)
 // A single file is gonna be uploaded under a thumbnail name
 

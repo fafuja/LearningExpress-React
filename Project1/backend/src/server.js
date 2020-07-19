@@ -27,7 +27,9 @@ const path = require('path');
 
 // You could use middleware here (app.use(callback)) to receive an info before you send the request out to the client.
 // Callback needs to have NEXT argument (req, res ,next) so when the callback is called you could call the next middleware.
-// (middleware specific to the url the client is in) 
+// (middleware specific to the url the client is in)
+ 
+//process.env.NODE_ENV = 'production';
 
 if(process.env.NODE_ENV != 'production'){
     require('dotenv').config()

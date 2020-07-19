@@ -11,7 +11,7 @@ function Login({ history }) { // Creating component Login
     const loginRef = React.createRef();
     const handleSubmit = async evt => {
         //This is async func. coz It will talk to the server API
-
+    
         evt.preventDefault();
 
         //console.log(`${email} and ${password}`)
@@ -30,6 +30,7 @@ function Login({ history }) { // Creating component Login
             loginRef.current.children[0].innerText = message
             console.log(message)
             fadeEffect(true)
+            
             //console.log(loginRef.current.children)
         }
     }
@@ -45,13 +46,15 @@ function Login({ history }) { // Creating component Login
                     </Alert>
                 </div>
                 </Fade>
-                <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
+                <FormGroup>
                     <Input type="email" name="email" id="email" placeholder="Your email" onChange={evt => setEmail(evt.target.value)} />
                 </FormGroup>
-                <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
+                <FormGroup >
                     <Input type="password" name="password" id="password" placeholder="Your password" onChange={evt => setPassword(evt.target.value)} />
                 </FormGroup>
+                <FormGroup>
                 <Button>Submit</Button>
+                </FormGroup>
             </Form>
         </Container>
 

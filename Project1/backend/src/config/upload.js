@@ -7,7 +7,6 @@ module.exports = {
         filename: (req, file, cb)=>{
             const ext = path.extname(file.originalname)
             const name = path.basename(file.originalname, ext)
-
             cb(null, `${name.replace(/\s/g, "")}-${Date.now()}${ext}`)
             // "/\s/g" = spaces
         }

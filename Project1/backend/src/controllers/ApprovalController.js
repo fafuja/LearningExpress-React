@@ -13,7 +13,7 @@ module.exports = {
                 await registration.save()
                 return res.json(registration)
             }
-            return res.status(400).json({message: "You're not the owner of this event!"})
+            return res.status(400).json({message: "User is not the owner of this event!"})
 
         } catch (error) {
             return res.status(400).json({message: "Registration not found."})
