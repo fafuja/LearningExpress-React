@@ -27,7 +27,7 @@ module.exports = {
                 }
                 return res.json(userResponse);
             }else{
-                return res.status(200).json({message: "Password or Email does not match."})
+                return res.status(200).json({message: "Email or password does not match."})
             }
 
         } catch (error) {

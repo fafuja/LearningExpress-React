@@ -1,5 +1,5 @@
 import React from 'react';
-import {Container} from "reactstrap";
+import { Container } from "reactstrap";
 import Routes from "./routes"
 import './App.css';
 
@@ -7,10 +7,12 @@ function App() {
   return (
     <Container>
       <h1>Sport's App</h1>
-        <Routes/>
-          {/* <Login/> Component Login*/}
-           {/* <Login/> = <Login></Login> */}
-          {/*<Dashboard/>*/}
+      <div className="content ">
+        <Routes />
+      </div>
+      {/* <Login/> Component Login*/}
+      {/* <Login/> = <Login></Login> */}
+      {/*<Dashboard/>*/}
     </Container>
   );
 }

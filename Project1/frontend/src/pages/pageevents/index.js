@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { Container, FormGroup, Label, Input, Form, Button, Fade, Alert } from 'reactstrap'
-import image from '../../img/image.png'
+import image from '../../assets/image.png'
 import api from '../../services/api'
 function Events() {
     const user_id = localStorage.getItem('user_id')
@@ -88,14 +88,15 @@ function Events() {
     <Alert color="danger"><div>{alertMessage}</div></Alert>
             </Fade>
             <Form onSubmit={handleSubmit}>
-                <Label>Select your image</Label><br />
+                
                 <FormGroup style={{ textAlign: "center" }}>
+                <Label>Select your image</Label><br />
                     <Label for="thumbnail"><img alt="" id='imagepreview' src={image} width='200px' /></Label>
                     <Input hidden={true} type="file" name="thumbnail" id="thumbnail" onChange={(evt) => {
                         setHaveThumbnail(true)
                     }} />
                 </FormGroup>
-
+                    
                 <FormGroup>
                     <Label for="title">Title</Label>
                     <Input type="text" name="title" id="title" onChange={evt => { setTitle(evt.target.value) }} />
@@ -116,7 +117,7 @@ function Events() {
                     <Label for="date">Date</Label>
                     <Input type="date" name="date" id="date" onChange={evt => { setDate(evt.target.value) }} />
                 </FormGroup>
-                <Button>Submit</Button>
+                <Button className='submit-btn'>Submit</Button>
             </Form>
         </Container>
     )

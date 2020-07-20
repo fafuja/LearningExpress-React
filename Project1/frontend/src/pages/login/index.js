@@ -9,9 +9,10 @@ function Login({ history }) { // Creating component Login
     const [password, setPassword] = useState("")
     const [fade, fadeEffect] = useState(false)
     const loginRef = React.createRef();
+   
     const handleSubmit = async evt => {
         //This is async func. coz It will talk to the server API
-    
+
         evt.preventDefault();
 
         //console.log(`${email} and ${password}`)
@@ -30,7 +31,7 @@ function Login({ history }) { // Creating component Login
             loginRef.current.children[0].innerText = message
             console.log(message)
             fadeEffect(true)
-            
+
             //console.log(loginRef.current.children)
         }
     }
@@ -40,11 +41,11 @@ function Login({ history }) { // Creating component Login
             <p>Please <strong>login into your account.</strong></p>
             <Form onSubmit={handleSubmit}>
                 <Fade in={fade}>
-                <div ref={loginRef}>
-                    <Alert color="danger"> {/* Function component */}
-                        {/*hidden={false}*/}
-                    </Alert>
-                </div>
+                    <div ref={loginRef}>
+                        <Alert color="danger"> {/* Function component */}
+                            {/*hidden={false}*/}
+                        </Alert>
+                    </div>
                 </Fade>
                 <FormGroup>
                     <Input type="email" name="email" id="email" placeholder="Your email" onChange={evt => setEmail(evt.target.value)} />
@@ -53,7 +54,10 @@ function Login({ history }) { // Creating component Login
                     <Input type="password" name="password" id="password" placeholder="Your password" onChange={evt => setPassword(evt.target.value)} />
                 </FormGroup>
                 <FormGroup>
-                <Button>Submit</Button>
+                    <Button className="submit-btn">Log in</Button>
+                </FormGroup>
+                <FormGroup>
+                    <Button className="secondary-btn" onClick={()=>history.push('/register')}>Sign Up</Button>
                 </FormGroup>
             </Form>
         </Container>

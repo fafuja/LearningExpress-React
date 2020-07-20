@@ -45,19 +45,24 @@ function Register({ history }) { // Creating component Login
                 </Alert>
             </div>
         </Fade>
-            <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
+            <FormGroup >
                 <Input type="text" name="firstname" id="firstname" placeholder="Your name" onChange={evt => setFirstName(evt.target.value)} />
             </FormGroup>
-            <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
+            <FormGroup >
                 <Input type="text" name="lastname" id="lastname" placeholder="Your last name" onChange={evt => setLastName(evt.target.value)} />
             </FormGroup>
-            <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
+            <FormGroup >
                 <Input type="email" name="email" id="email" placeholder="Your email" onChange={evt => setEmail(evt.target.value)} />
             </FormGroup>
-            <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
+            <FormGroup>
                 <Input type="password" name="password" id="password" placeholder="Your password" onChange={evt => setPassword(evt.target.value)} />
             </FormGroup>
-            <Button>Submit</Button>
+            <FormGroup>
+            <Button className="submit-btn">Register</Button>
+            </FormGroup>
+            <FormGroup>
+            <Button className="secondary-btn" onClick={()=>{history.push('/login')}}>Log In instead?</Button>
+            </FormGroup>
         </Form>
         </Container>
     )
